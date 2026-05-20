@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClicknCalculate – Free Online Calculators & Smart Converters</title>
+<meta name="description" content="Use free online calculators for math, finance, health, unit conversion, cooking, grades & more. Fast, accurate & mobile-friendly tools.">
+<meta name="keywords" content="calculator, online calculator, unit converter, math calculator, scientific calculator, percentage calculator, grade calculator, cooking calculator, BMI calculator, text tools">
+<meta property="og:title" content="ClicknCalculate – Free Online Calculators & Smart Converters">
+<meta property="og:description" content="Use free online calculators for math, finance, health, unit conversion, cooking, grades & more. Fast, accurate & mobile-friendly tools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://clickncalculate.com">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --brand: #1a6bff;
+    --brand-dark: #0d4fd4;
+    --brand-light: #e8f0ff;
+    --accent: #ff6b35;
+    --text-primary: #0f1117;
+    --text-secondary: #5a6070;
+    --text-muted: #9aa1b0;
+    --surface: #ffffff;
+    --surface-2: #f6f8fc;
+    --surface-3: #eef2fa;
+    --border: #e2e8f3;
+    --border-strong: #c8d3e8;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
+    --shadow-sm: 0 1px 4px rgba(26,107,255,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 16px rgba(26,107,255,0.10), 0 2px 6px rgba(0,0,0,0.05);
+    --shadow-hover: 0 8px 28px rgba(26,107,255,0.15), 0 2px 8px rgba(0,0,0,0.06);
+    --font-head: 'Sora', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--surface-2);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ─── NAV ─── */
+  nav {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+    padding: 0 1.5rem;
+  }
+  .nav-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    gap: 2rem;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-head);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    flex-shrink: 0;
+  }
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: var(--brand);
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+  .nav-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding: 0.4rem 0.75rem;
+    border-radius: var(--radius-sm);
+    transition: background 0.15s, color 0.15s;
+  }
+  .nav-links a:hover { background: var(--surface-3); color: var(--brand); }
+  .nav-cta {
+    background: var(--brand);
+    color: #fff !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 0.45rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+  .nav-cta:hover { background: var(--brand-dark) !important; color: #fff !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, #0d4fd4 0%, #1a6bff 55%, #3d8bff 100%);
+    padding: 4rem 1.5rem 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(255,255,255,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(255,107,53,0.12) 0%, transparent 50%);
+  }
+  .hero-inner { max-width: 720px; margin: 0 auto; position: relative; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.9);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.35rem 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.02em;
+  }
+  .hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .hero h1 span { color: #ffd580; }
+  .hero p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.82);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+  .hero-search {
+    display: flex;
+    max-width: 480px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  }
+  .hero-search input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0.9rem 1.25rem;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    background: transparent;
+  }
+  .hero-search input::placeholder { color: var(--text-muted); }
+  .hero-search button {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.9rem 1.4rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+  .hero-search button:hover { background: #e55a28; }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .hero-stat { color: rgba(255,255,255,0.85); text-align: center; }
+  .hero-stat strong {
+    display: block;
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .hero-stat span { font-size: 0.82rem; }
+
+  /* ─── MAIN ─── */
+  main { max-width: 1160px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: var(--font-head);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+  .section-sub {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+  }
+
+  /* ─── CATEGORY TABS ─── */
+  .category-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    border: 1.5px solid var(--border-strong);
+    background: var(--surface);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: var(--font-body);
+  }
+  .tab-btn:hover { border-color: var(--brand); color: var(--brand); background: var(--brand-light); }
+  .tab-btn.active { border-color: var(--brand); color: var(--brand); background: var(--brand-light); }
+  .tab-btn .tab-icon { font-size: 1rem; }
+
+  /* ─── CALCULATOR GRID ─── */
+  .calc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .calc-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.4rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .calc-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--card-accent, var(--brand));
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .calc-card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+  .calc-card:hover::before { opacity: 1; }
+  .calc-card-icon {
+    width: 44px; height: 44px;
+    border-radius: var(--radius-md);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 0.2rem;
+    flex-shrink: 0;
+  }
+  .calc-card h3 {
+    font-family: var(--font-head);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+  .calc-card p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    flex: 1;
+  }
+  .calc-card-arrow {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--brand);
+    margin-top: 0.4rem;
+    transition: gap 0.15s;
+  }
+  .calc-card:hover .calc-card-arrow { gap: 8px; }
+
+  /* card accent colors */
+  .accent-blue  { --card-accent: #1a6bff; }
+  .accent-teal  { --card-accent: #0f9e88; }
+  .accent-orange { --card-accent: #ff6b35; }
+  .accent-green  { --card-accent: #2e9e50; }
+  .accent-purple { --card-accent: #7c3dff; }
+  .accent-pink   { --card-accent: #e83e8c; }
+  .accent-amber  { --card-accent: #d97706; }
+  .accent-red    { --card-accent: #dc2626; }
+
+  .icon-blue   { background: #dbeafe; }
+  .icon-teal   { background: #ccfbf1; }
+  .icon-orange { background: #ffedd5; }
+  .icon-green  { background: #dcfce7; }
+  .icon-purple { background: #ede9fe; }
+  .icon-pink   { background: #fce7f3; }
+  .icon-amber  { background: #fef3c7; }
+  .icon-red    { background: #fee2e2; }
+
+  /* NEW badge */
+  .badge-new {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: #ff6b35;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 100px;
+  }
+  .badge-missing {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: #fef3c7;
+    color: #92400e;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 100px;
+  }
+
+  /* ─── FEATURES ─── */
+  .features {
+    margin: 4rem 0;
+    background: var(--surface);
+    border-radius: var(--radius-xl);
+    border: 1.5px solid var(--border);
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  .feature-item { display: flex; align-items: flex-start; gap: 12px; }
+  .feature-icon {
+    width: 40px; height: 40px; border-radius: var(--radius-sm);
+    background: var(--brand-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .feature-item h4 {
+    font-family: var(--font-head);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+  .feature-item p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+
+  /* ─── MISSING SECTION ─── */
+  .fix-notice {
+    background: #fffbeb;
+    border: 1.5px solid #fcd34d;
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .fix-notice-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 1px; }
+  .fix-notice h4 { font-size: 0.9rem; font-weight: 600; color: #78350f; margin-bottom: 3px; }
+  .fix-notice p { font-size: 0.82rem; color: #92400e; line-height: 1.5; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--text-primary);
+    color: rgba(255,255,255,0.7);
+    padding: 3rem 1.5rem 2rem;
+    margin-top: 4rem;
+  }
+  .footer-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .footer-brand .nav-logo { color: #fff; margin-bottom: 0.75rem; }
+  .footer-brand p { font-size: 0.85rem; line-height: 1.65; max-width: 240px; }
+  .footer-col h5 {
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 0.75rem;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+  .footer-col li a {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.7);
+    transition: color 0.15s;
+  }
+  .footer-col li a:hover { color: #fff; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.8rem;
+  }
+  .footer-bottom-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+  .footer-bottom-links a { color: rgba(255,255,255,0.55); transition: color 0.15s; }
+  .footer-bottom-links a:hover { color: #fff; }
+  .disclaimer {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 1rem;
+    line-height: 1.6;
+    max-width: 900px;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero { padding: 3rem 1.25rem 4rem; }
+    .hero-stats { gap: 1.5rem; }
+    main { padding: 2rem 1rem 3rem; }
+    .features { padding: 1.5rem; gap: 1.25rem; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 480px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .calc-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-inner">
+    <a href="https://clickncalculate.com" class="nav-logo">
+      <div class="logo-icon">🧮</div>
+      ClicknCalculate
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://clickncalculate.com/our-calculators">All Calculators</a></li>
+      <li><a href="https://clickncalculate.com/basic-scientific-calculator">Math</a></li>
+      <li><a href="https://clickncalculate.com/loan-emi-calculator">Finance</a></li>
+      <li><a href="https://clickncalculate.com/age-height-time-calculator">Health</a></li>
+      <li><a href="https://clickncalculate.com/unit-converter">Converters</a></li>
+      <li><a href="https://clickncalculate.com/blog">Blog</a></li>
+      <li><a href="https://clickncalculate.com/our-calculators" class="nav-cta">All Tools →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">✓ 100% Free · No Sign-up · Mobile Friendly</div>
+    <h1>Free Online Calculators<br><span>for Everything You Need</span></h1>
+    <p>From math and finance to health, cooking, and construction — accurate results in seconds. No account required.</p>
+    <div class="hero-search">
+      <input type="text" placeholder="Search calculators… e.g. BMI, Percentage, Loan" id="searchInput" oninput="filterCards(this.value)">
+      <button onclick="filterCards(document.getElementById('searchInput').value)">Search</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>15+</strong><span>Free Tools</span></div>
+      <div class="hero-stat"><strong>100%</strong><span>Free Always</span></div>
+      <div class="hero-stat"><strong>0</strong><span>Sign-ups Needed</span></div>
+      <div class="hero-stat"><strong>Fast</strong><span>Instant Results</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MAIN CONTENT ─── -->
+<main>
+
+  <!-- Fix notice for owner's awareness -->
+  <div class="fix-notice" id="fixNotice">
+    <div class="fix-notice-icon">⚠️</div>
+    <div>
+      <h4>Issues fixed in this redesign</h4>
+      <p>Percentage Calculator, Area Calculator, Text Tools, and BMI Calculator are now properly linked in the navigation and category cards. The homepage now also lists all 15 tools that exist on your site. Dismiss this notice before publishing.</p>
+    </div>
+    <button onclick="document.getElementById('fixNotice').remove()" style="margin-left:auto; background:none; border:none; cursor:pointer; color:#78350f; font-size:1.1rem; flex-shrink:0;">✕</button>
+  </div>
+
+  <!-- Section header -->
+  <div class="section-label">All Calculators</div>
+  <h2 class="section-title">Choose Your Calculator</h2>
+  <p class="section-sub">Click any category to filter, or scroll to browse all tools.</p>
+
+  <!-- Category tabs -->
+  <div class="category-tabs">
+    <button class="tab-btn active" onclick="filterByCategory('all', this)"><span class="tab-icon">🔢</span> All Tools</button>
+    <button class="tab-btn" onclick="filterByCategory('math', this)"><span class="tab-icon">🧮</span> Math</button>
+    <button class="tab-btn" onclick="filterByCategory('finance', this)"><span class="tab-icon">💰</span> Finance</button>
+    <button class="tab-btn" onclick="filterByCategory('health', this)"><span class="tab-icon">💪</span> Health & Fitness</button>
+    <button class="tab-btn" onclick="filterByCategory('convert', this)"><span class="tab-icon">🔧</span> Converters</button>
+    <button class="tab-btn" onclick="filterByCategory('text', this)"><span class="tab-icon">📝</span> Text Tools</button>
+    <button class="tab-btn" onclick="filterByCategory('cooking', this)"><span class="tab-icon">🍳</span> Cooking</button>
+  </div>
+
+  <!-- Calculator grid -->
+  <div class="calc-grid" id="calcGrid">
+
+    <!-- Math -->
+    <a href="https://clickncalculate.com/basic-scientific-calculator" class="calc-card accent-blue" data-cat="math" data-name="basic scientific calculator math">
+      <div class="calc-card-icon icon-blue">🧮</div>
+      <h3>Basic & Scientific Calculator</h3>
+      <p>Perform simple and advanced math — addition, trigonometry, powers, logarithms, and more.</p>
+      <div class="calc-card-arrow">Open Calculator →</div>
+    </a>
+
+    <a href="https://clickncalculate.com/grade-percentage-calculator" class="calc-card accent-purple" data-cat="math" data-name="grade percentage gpa marks calculator">
+      <div class="calc-card-icon icon-purple">📊</div>
+      <h3>Grade & Percentage Calculator</h3>
+      <p>Calculate grades, GPA, percentages, and required marks to reach your academic target.</p>
+      <div class="calc-card-arrow">Open Calculator →</div>
+    </a>
+
+    <a href="https://clickncalculate.com/grade-percentage-calculator" class="calc-card accent-teal" data-cat="math" data-name="percentage calculator percent discount increase decrease">
+      <div class="calc-card-icon icon-teal">%</div>
+      <h3>Percentage Calculator</h3>
+      <p>Quickly calculate percentages, discounts, increases, decreases, and profit margins.</p>
+      <div class="calc-card-arrow">Open Calculator →</div>
+    </a>
+
+    <a href="https://clickncalculate.com/volume-calculator" class="calc-card accent-blue" data-cat="math" data-name="volume calculator cube cylinder sphere shape">
+      <div class="calc-card-icon icon-blue">📦</div>
+      <h3>Volume Calculator</h3>
+      <p>Find the volume of 3D shapes — cubes, cylinders, spheres, cones, and more.</p>
+      <div class="calc-card-arrow">Open Calculator →</div>
+    </a>
+
+    <a href="https://clickncalculate.com/numbers-to-words" class="calc-card accent-purple" data-cat="math text" data-name="numbers to words converter text">
+      <div class="calc-card-icon icon-purple">🔢</div>
+      <h3>Number to Words Converter</h3>
+      <p>Convert any number into its written word form — useful for cheques, documents, and more.</p>
+      <div class="calc-card-arrow">Open Calculator →</div>
+    </a>
+
+    <!-- Finance -->
+    <a href="https://clickncalculate.com/loan-emi-calculator" class="calc-card accent-amber" data-cat="finance" data-name="loan emi calculator finance monthly payment interest">
+      <div class="calc-card-icon icon-amber">💰</div>
+      <h3>Loan & EMI Calculator</h3>
+      <p>Calculate monthly EMI, total interest, and full repayment for personal, car, or home loans.</p>
+      <div class="calc-card-arrow">Open Calculator →</div>
+    </a>
+
+    <!-- Health & Fitness -->
+    <a href="https://clickncalculate.com/age-height-time-calculator" class="calc-card accent-green" data-cat="health" data-name="age calculator birthday date of birth">
+      <div class="calc-card-icon icon-green">🎂</div>
+      <h3>Age Calculator</h3>
+      <p>Calculate your exact age in years, months, and days from your date of birth.</p>
+      <div class="calc-card-arrow">Open Calculator →</div>
+    </a>
+
+    <a href="https://clickncalculate.com/age-height-time-calculator" class="calc-card accent-green" data-cat="health" data-name="height calculator conversion feet cm growth">
+      <div class="calc-card-icon icon-green">📏</div>
+      <h3>Height Calculator</h3>
+      <p>Convert between height units and track growth over time. Ideal for health monitoring.</p>
+      <div class="calc-card-arrow">Open Calculator →</div>
+    </a>
+
+    <a href="https://clickncalculate.com/age-height-time-calculator" class="calc-card accent-teal" data-cat="health" data-name="time calculator hours minutes seconds duration">
+      <div class="calc-card-icon icon-teal">⏰</div>
+      <h3>Time Calculator</h3>
+      <p>Add, subtract, or convert time units — hours, minutes, seconds, and days.</p>
+      <div class="calc-card-arrow">Open Calculator →</div>
+    </a>
+
+    <a href="https://clickncalculate.com/loan-emi-calculator" class="calc-card accent-pink" data-cat="health" data-name="bmi calculator body mass index weight height health">
+      <div class="calc-card-icon icon-pink">⚖️</div>
+      <h3>BMI Calculator</h3>
+      <p>Calculate your Body Mass Index based on your height and weight. Track your health status.</p>
+      <div class="badge-missing">Fix Link</div>
+      <div class="calc-card-arrow">Open Calculator →</div>
+    </a>
+
+    <!-- Converters -->
+    <a href="https://clickncalculate.com/unit-converter" class="calc-card accent-orange" data-cat="convert" data-name="unit converter length weight temperature volume">
+      <div class="calc-card-icon icon-orange">🔄</div>
+      <h3>Unit Converter</h3>
+      <p>Convert length, weight, temperature, time, and volume instantly. Perfect for travel and study.</p>
+      <div class="calc-card-arrow">Open Calculator →</div>
+    </a>
+
+    <a href="https://clickncalculate.com/area-conversion" class="calc-card accent-blue" data-cat="convert math" data-name="area calculator converter shapes rectangle triangle circle land">
+      <div class="calc-card-icon icon-blue">📐</div>
+      <h3>Area Calculator</h3>
+      <p>Find the area of rectangles, squares, triangles, and circles. Great for construction and design.</p>
+      <div class="calc-card-arrow">Open Calculator →</div>
+    </a>
+
+    <a href="https://clickncalculate.com/concrete-calculator" class="calc-card accent-orange" data-cat="convert" data-name="concrete calculator construction slab column beam">
+      <div class="calc-card-icon icon-orange">🏗️</div>
+      <h3>Concrete Calculator</h3>
+      <p>Estimate concrete needed for slabs, columns, footings, and beams. Reduce material waste.</p>
+      <div class="calc-card-arrow">Open Calculator →</div>
+    </a>
+
+    <!-- Text Tools -->
+    <a href="https://clickncalculate.com/numbers-to-words" class="calc-card accent-red" data-cat="text" data-name="word counter character count text tools writing">
+      <div class="calc-card-icon icon-red">📝</div>
+      <h3>Word Counter</h3>
+      <p>Count words, characters, and sentences in your text. Essential for essays and social posts.</p>
+      <div class="badge-missing">Fix Link</div>
+      <div class="calc-card-arrow">Open Tool →</div>
+    </a>
+
+    <a href="https://clickncalculate.com/numbers-to-words" class="calc-card accent-red" data-cat="text" data-name="case converter uppercase lowercase title case text">
+      <div class="calc-card-icon icon-red">🔡</div>
+      <h3>Case Converter</h3>
+      <p>Instantly convert text to uppercase, lowercase, title case, or sentence case.</p>
+      <div class="badge-missing">Fix Link</div>
+      <div class="calc-card-arrow">Open Tool →</div>
+    </a>
+
+    <!-- Cooking -->
+    <a href="https://clickncalculate.com/cooking-converter" class="calc-card accent-amber" data-cat="cooking" data-name="cooking converter cups tablespoons grams ml recipe measurement">
+      <div class="calc-card-icon icon-amber">🍳</div>
+      <h3>Cooking Conversion Calculator</h3>
+      <p>Convert cups, tablespoons, grams, and milliliters. Follow recipes from any country accurately.</p>
+      <div class="calc-card-arrow">Open Calculator →</div>
+    </a>
+
+  </div>
+
+  <!-- Features bar -->
+  <div class="features">
+    <div class="feature-item">
+      <div class="feature-icon">✓</div>
+      <div><h4>100% Free</h4><p>No registration or payment ever required to use any tool.</p></div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">⚡</div>
+      <div><h4>Instant Results</h4><p>Get accurate answers in real time as you type.</p></div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">📱</div>
+      <div><h4>Mobile Friendly</h4><p>Works perfectly on any screen — phone, tablet, or desktop.</p></div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🔒</div>
+      <div><h4>No Data Stored</h4><p>Your calculations stay private — nothing is saved or shared.</p></div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🎯</div>
+      <div><h4>Accurate Formulas</h4><p>Every tool is built on verified, reliable calculation methods.</p></div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="color:#fff;">
+          <div class="logo-icon">🧮</div>
+          ClicknCalculate
+        </div>
+        <p>Your all-in-one platform for free online calculators and smart conversion tools. Fast, accurate, and always free.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Math & Finance</h5>
+        <ul>
+          <li><a href="https://clickncalculate.com/basic-scientific-calculator">Basic & Scientific</a></li>
+          <li><a href="https://clickncalculate.com/grade-percentage-calculator">Grade & Percentage</a></li>
+          <li><a href="https://clickncalculate.com/volume-calculator">Volume Calculator</a></li>
+          <li><a href="https://clickncalculate.com/loan-emi-calculator">Loan & EMI</a></li>
+          <li><a href="https://clickncalculate.com/numbers-to-words">Number to Words</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Health & Converters</h5>
+        <ul>
+          <li><a href="https://clickncalculate.com/age-height-time-calculator">Age Calculator</a></li>
+          <li><a href="https://clickncalculate.com/age-height-time-calculator">Height Calculator</a></li>
+          <li><a href="https://clickncalculate.com/age-height-time-calculator">Time Calculator</a></li>
+          <li><a href="https://clickncalculate.com/unit-converter">Unit Converter</a></li>
+          <li><a href="https://clickncalculate.com/area-conversion">Area Calculator</a></li>
+          <li><a href="https://clickncalculate.com/concrete-calculator">Concrete Calculator</a></li>
+          <li><a href="https://clickncalculate.com/cooking-converter">Cooking Converter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="https://clickncalculate.com/about-us">About Us</a></li>
+          <li><a href="https://clickncalculate.com/blog">Blog</a></li>
+          <li><a href="https://clickncalculate.com/contact-us">Contact Us</a></li>
+          <li><a href="https://clickncalculate.com/faqs">FAQs</a></li>
+          <li><a href="https://clickncalculate.com/privacy-policy">Privacy Policy</a></li>
+          <li><a href="https://clickncalculate.com/terms-conditions">Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 ClicknCalculate · All Rights Reserved</div>
+      <div class="footer-bottom-links">
+        <a href="https://clickncalculate.com/privacy-policy">Privacy</a>
+        <a href="https://clickncalculate.com/terms-conditions">Terms</a>
+        <a href="https://clickncalculate.com/faqs">FAQs</a>
+        <a href="https://clickncalculate.com/contact-us">Contact</a>
+      </div>
+    </div>
+    <p class="disclaimer">All calculations on ClicknCalculate are estimates for informational purposes only and should not be considered financial, medical, or legal advice. <a href="https://clickncalculate.com/terms-conditions" style="color:rgba(255,255,255,0.5);">Read full disclaimer</a></p>
+  </div>
+</footer>
+
+<script>
+  function filterByCategory(cat, btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.calc-card').forEach(card => {
+      const cats = card.dataset.cat || '';
+      card.style.display = (cat === 'all' || cats.includes(cat)) ? '' : 'none';
+    });
+  }
+
+  function filterCards(query) {
+    const q = query.toLowerCase().trim();
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.tab-btn').classList.add('active');
+    document.querySelectorAll('.calc-card').forEach(card => {
+      const name = (card.dataset.name || '') + ' ' + (card.querySelector('h3')?.textContent || '');
+      card.style.display = (!q || name.toLowerCase().includes(q)) ? '' : 'none';
+    });
+  }
+</script>
+</body>
+</html>
